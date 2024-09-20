@@ -1,12 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS
-import datetime
 import requests
-from requests_html import HTMLSession
 import json
-from bs4 import BeautifulSoup
-import datetime
-import pytz
 import pandas as pd
 import wikipediaapi as wa
 
@@ -22,12 +17,13 @@ CORS(app)
 
 @app.route("/")
 def hello_world():
-    return "Hello worlddddd"
+    return "Komthru Flask API"
 
 
 @app.route("/get-wiki", methods=['POST'])
-def getWikiInfo(q, imgSize=800, txtLength=700):
-    data = request.data.decode("utf-8")
+def getWikiInfo(imgSize=800, txtLength=700):
+    q = request.data.decode("utf-8")[1:-1] #remove quotes
+    print(q)
     reds = requests.get(
         "http://en.wikipedia.org/w/api.php?action=query&format=json&titles="
         + q
@@ -61,13 +57,13 @@ def getWikiInfo(q, imgSize=800, txtLength=700):
         if len(e) > 0 and len(txt) > 0:
             return {"img": e, "txt": txt[f + 1 : f + 1 + txtLength]}
         else:
-            return {"img": "none", txt: ""}
+            return {"img": "none", "txt": ""}
 
 
-@app.route("/get-wikis")
-def getWikiInfos(qarr, imageSize=800, txtLength=700):
+@app.route("/get-wikis", methods=['POST'])
+def getWikiInfos(imageSize=800, txtLength=700):
     data = request.data.decode("utf-8")
-    s = data.split("|")
+    qarr = data.split("|")
     if len(qarr) > 8:
         return []
     else:
