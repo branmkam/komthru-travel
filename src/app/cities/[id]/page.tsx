@@ -1,9 +1,10 @@
-import wc from "../../../../data/worldcities.json";
+import wc from "@/data/worldcities.json";
 import { notFound } from "next/navigation";
 import dynamic from "next/dynamic";
 import { getWiki } from "@/actions";
 import { orelega_class } from "@/fonts";
 import { popnum } from "@/utils/utils";
+import Link from "next/link";
 
 const CityMap = dynamic(() => import("@/components/CityMap"), {
   ssr: false,
@@ -23,7 +24,7 @@ export default async function CityPage(props: CityProps) {
   const id = parseInt(props.params.id);
   const data = wc[id];
   const fetchStr =
-    data.city +
+    data.city_ascii +
     ", " +
     (["US", "CA"].includes(data.iso2) ? data.admin_name : data.country);
   let wikiInfo = await getWiki(fetchStr);
@@ -47,9 +48,18 @@ export default async function CityPage(props: CityProps) {
           {data.admin_name && (
             <h3 className="text-xl text-white ">{data.admin_name}</h3>
           )}
-          <h3 className="text-3xl text-white ">
+          <Link
+            href={"/countries/" + data.iso3}
+            className="text-3xl hover:text-blue-300 text-white flex flex-row gap-2 items-center"
+          >
             {data.country.replace("Democratic Republic of the Congo", "DRC")}
-          </h3>
+            <img
+              src={`https://flagcdn.com/96x72/${data.iso2.toLowerCase()}.png`}
+              alt={data.country + " flag"}
+              height="48"
+              width="36"
+            />
+          </Link>
         </div>
         <h3
           className={`absolute text-2xl text-white bottom-5 left-5 ${orelega_class}`}

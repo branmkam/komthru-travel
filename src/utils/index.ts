@@ -1,5 +1,5 @@
 "use server";
-import wc from "../../data/worldcities.json";
+import wc from "@/data/worldcities.json";
 import { redirect } from "next/navigation";
 
 export async function randomCity(redir: boolean = false, l: number = 0) {

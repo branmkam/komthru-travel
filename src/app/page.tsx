@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <div>
-      <CityCarousel className={""} />
+      {/* <CityCarousel className={""} /> */}
       <div className="p-6">
         <button
           onClick={() => randomCity(true, 800000)}

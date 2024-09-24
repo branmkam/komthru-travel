@@ -21,8 +21,9 @@ def hello_world():
 
 
 @app.route("/get-wiki", methods=['POST'])
-def getWikiInfo(imgSize=800, txtLength=700):
-    q = request.data.decode("utf-8")[1:-1] #remove quotes
+def getWikiInfo(imgSize=800, txtLength=700, q=None):
+    if q == None:
+        q = request.data.decode("utf-8")[1:-1] #remove quotes
     print(q)
     reds = requests.get(
         "http://en.wikipedia.org/w/api.php?action=query&format=json&titles="
@@ -62,12 +63,12 @@ def getWikiInfo(imgSize=800, txtLength=700):
 
 @app.route("/get-wikis", methods=['POST'])
 def getWikiInfos(imageSize=800, txtLength=700):
-    data = request.data.decode("utf-8")
+    data = request.data.decode("utf-8")[1:-1]
     qarr = data.split("|")
     if len(qarr) > 8:
         return []
     else:
-        return [getWikiInfo(q, imageSize, txtLength) for q in qarr]
+        return [getWikiInfo(imageSize, txtLength, q) for q in qarr]
 
 
 if __name__ == "__main__":
