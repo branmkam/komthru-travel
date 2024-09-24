@@ -14,7 +14,10 @@ export default function Login() {
           type={showText ? "text" : "password"}
           className="rounded-lg py-1 px-3 w-full"
         />
-        <button className="absolute top-1 right-2" onClick={() => setShowText((s) => !s)}>
+        <button
+          className="w-10 absolute top-1 right-2"
+          onClick={() => setShowText((s) => !s)}
+        >
           {showText ? "Hide" : "Show"}
         </button>
       </div>

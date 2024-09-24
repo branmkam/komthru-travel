@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <nav className="text-white h-10 flex flex-row px-4 items-center justify-between fixed z-50 w-full bg-[#020430]">
       <div className="flex flex-row gap-3">
-        <Link href="/">K</Link>
+        <Link className="font-bold hover:text-blue-300 " href="/">KOMTHRU</Link>
         <p>Discover</p>
         <p></p>
       </div>

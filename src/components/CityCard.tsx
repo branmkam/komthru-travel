@@ -26,7 +26,7 @@ export default async function CityCard(data: CityCardProps) {
   let wikiInfo = await getWiki(fetchStr);
 
   return (
-    <Link href={"/cities/" + data.id} className="h-44 w-full">
+    <Link href={"/cities/" + data.id} className="hover:animate-smallbounce drop-shadow-lg h-44 w-full">
       <div className="relative">
         <img
           className="w-full h-44 rounded-xl object-cover brightness-[0.3]"
