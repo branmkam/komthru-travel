@@ -1,5 +1,6 @@
 import Link from "next/link";
 import wc from "@/data/worldcities.json";
+import Image from "next/image";
 
 const highlights = {
   Europe: ["RUS", "DEU", "GBR", "ESP", "FRA", "ITA"],
@@ -12,9 +13,16 @@ const highlights = {
 
 export default function Navbar() {
   return (
-    <nav className="text-white h-10 flex flex-row px-4 items-center justify-between fixed z-50 w-full bg-[#020430]">
-      <div className="flex flex-row gap-3">
-        <Link className="font-bold hover:text-blue-300 " href="/">KOMTHRU</Link>
+    <nav className="text-white h-16 flex flex-row px-4 items-center justify-between fixed z-50 w-full bg-[#020430]">
+      <div className="flex flex-row gap-3 justify-center items-center">
+        <Link className="font-bold hover:text-blue-300 " href="/">
+          <Image
+            src="/images/testlogo.png"
+            alt="Komthru logo"
+            height={30}
+            width={73}
+          />
+        </Link>
         <p>Discover</p>
         <Link href="/search">Search</Link>
         <p></p>

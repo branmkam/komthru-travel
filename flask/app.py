@@ -21,7 +21,7 @@ def hello_world():
 
 
 @app.route("/get-wiki", methods=['POST'])
-def getWikiInfo(imgSize=800, txtLength=700, q=None):
+def getWikiInfo(imgSize=1200, txtLength=700, q=None):
     if q == None:
         q = request.data.decode("utf-8")[1:-1] #remove quotes
     print(q)
@@ -62,7 +62,7 @@ def getWikiInfo(imgSize=800, txtLength=700, q=None):
 
 
 @app.route("/get-wikis", methods=['POST'])
-def getWikiInfos(imageSize=800, txtLength=700):
+def getWikiInfos(imageSize=1200, txtLength=700):
     data = request.data.decode("utf-8")[1:-1]
     qarr = data.split("|")
     if len(qarr) > 8:

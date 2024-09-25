@@ -34,7 +34,7 @@ export default function Search() {
   ) : null;
 
   return (
-    <div className="flex flex-row w-full h-screen">
+    <div className="flex flex-row w-full h-[calc(100vh_-_4rem)]">
       <div className="flex flex-col gap-1 overflow-y-auto w-1/3 p-4 bg-blue-800">
         <input
           className="w-full"

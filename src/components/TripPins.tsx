@@ -23,6 +23,7 @@ interface TripPinsProps {
   legs: PinProps[];
   user: string;
   tripId: number;
+  visibility: string;
 }
 
 export default function TripPins(data: TripPinsProps) {

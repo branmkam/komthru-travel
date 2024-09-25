@@ -7,6 +7,7 @@ export const trips = [
     name: "Spain 2024",
     user: "Brandino", //unique text id
     tripId: 123456,
+    visibility: "private",
     legs: [
       {
         cityId: "1724594040", //Barcelona
@@ -35,6 +36,7 @@ export const trips = [
     end: "2024-07-29",
     name: "The trip of all time",
     user: "YaktheGoat", //unique text id
+    visibility: "public",
     tripId: 287342,
     legs: [
       {
