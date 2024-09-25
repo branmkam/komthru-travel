@@ -88,7 +88,7 @@ export default async function Country(props: CountryProps) {
           <h3 className={`${orelega_class} text-3xl mb-4`}>Top Cities</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {cities.slice(0, 6).map((cid) => (
-              <CityCard id={cid} {...wc[cid]} />
+              <CityCard key={cid} id={cid} {...wc[cid]} />
             ))}
           </div>
         </div>
