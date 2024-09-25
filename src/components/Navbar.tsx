@@ -16,6 +16,7 @@ export default function Navbar() {
       <div className="flex flex-row gap-3">
         <Link className="font-bold hover:text-blue-300 " href="/">KOMTHRU</Link>
         <p>Discover</p>
+        <Link href="/search">Search</Link>
         <p></p>
       </div>
       <div className="flex flex-row gap-3">

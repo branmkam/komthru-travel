@@ -1,5 +1,7 @@
 "use client";
 import Map from "@/components/Map";
+import TripPins from "@/components/TripPins";
+import { trips } from "@/models/userModel";
 
 export default function YourMap() {
   //   useEffect(() => {
@@ -21,9 +23,16 @@ export default function YourMap() {
   // ) : null;
 
   return (
-    <div className="flex flex-row w-full h-screen">
-      <div className="flex flex-col gap-1 overflow-y-auto w-1/3 p-4 bg-blue-800">test</div>
-      <Map children={null} className="h-full w-full" />
+    <div className="flex flex-row w-full h-[calc(100vh_-_2.5rem)]">
+      <div className="flex flex-col gap-1 overflow-y-auto w-1/3 p-4 bg-blue-800">
+        test
+      </div>
+      <Map
+        children={trips.map((trip) => (
+          <TripPins {...trip} />
+        ))}
+        className="h-full w-full"
+      />
     </div>
   );
 }
