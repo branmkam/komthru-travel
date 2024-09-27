@@ -1,3 +1,3 @@
 export default function NotFound() {
-    return <div>city not found!</div>
+    return <div className="p-6">City not found! Try a different ID.</div>
 }

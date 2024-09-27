@@ -37,7 +37,7 @@ export default function Search() {
     <div className="flex flex-row w-full h-[calc(100vh_-_4rem)]">
       <div className="flex flex-col gap-1 overflow-y-auto w-1/3 p-4 bg-blue-800">
         <input
-          className="w-full"
+          className="w-full rounded-md px-4 py-2"
           value={inp}
           onChange={(e) => setInp(e.target.value)}
         />
@@ -49,7 +49,7 @@ export default function Search() {
               return (
                 <div
                   onClick={() => setSelected(y)}
-                  className="hover:cursor-pointer w-full rounded-md p-1 bg-white"
+                  className="hover:cursor-pointer w-full rounded-md px-4 py-2 bg-white"
                 >
                   <p className={`${orelega_class} text-lg font-bold`}>
                     {wc[y].city}
