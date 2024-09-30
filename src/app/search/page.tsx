@@ -43,7 +43,11 @@ export default function Search() {
         />
         {inp.length > 0 ? (
           wcKeys
-            .filter((x) => wc[x].city.toLowerCase().includes(inp.toLowerCase()))
+            .filter((x) =>
+              (wc[x].city_ascii ? wc[x].city_ascii : wc[x].city)
+                .toLowerCase()
+                .includes(inp.toLowerCase())
+            )
             .slice(0, 6)
             .map((y) => {
               return (
