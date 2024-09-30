@@ -1,6 +1,6 @@
 "use server";
 export async function getWiki(q: string) {
-  let resp = await fetch("http://127.0.0.1:5000/get-wiki", {
+  let resp = await fetch("http://127.0.0.1:2024/get-wiki", {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -12,7 +12,7 @@ export async function getWiki(q: string) {
 }
 
 export async function getWikis(q: string) {
-  let resp = await fetch("http://127.0.0.1:5000/get-wikis", {
+  let resp = await fetch("http://127.0.0.1:2024/get-wikis", {
     method: "post",
     headers: {
       "Content-Type": "application/json",

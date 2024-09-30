@@ -1,5 +1,6 @@
 "use client";
 import { orelega_class } from "@/fonts";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Login() {
@@ -21,6 +22,9 @@ export default function Login() {
           {showText ? "Hide" : "Show"}
         </button>
       </div>
+      <p className="text-right text-[#020430]">
+        Don't have an account? <Link href="/auth/signup" className="text-blue-700 hover:text-blue-500">Sign up</Link>
+      </p>
     </div>
   );
 }

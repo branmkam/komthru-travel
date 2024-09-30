@@ -1,6 +1,7 @@
 import Link from "next/link";
 import wc from "@/data/worldcities.json";
 import Image from "next/image";
+import { randomCity } from "@/utils";
 
 const highlights = {
   Europe: ["RUS", "DEU", "GBR", "ESP", "FRA", "ITA"],
@@ -23,7 +24,7 @@ export default function Navbar() {
             width={73}
           />
         </Link>
-        <p>Discover</p>
+        <Link href={`/`}>Discover</Link>
         <Link href="/search">Search</Link>
         <p></p>
       </div>
