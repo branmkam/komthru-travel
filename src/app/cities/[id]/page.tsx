@@ -53,12 +53,14 @@ export default async function CityPage(props: CityProps) {
             className="text-3xl hover:text-blue-300 text-white flex flex-row gap-2 items-center"
           >
             {data.country.replace("Democratic Republic of the Congo", "DRC")}
-            <img
-              src={`https://flagcdn.com/96x72/${data.iso2.toLowerCase()}.png`}
-              alt={data.country + " flag"}
-              height="48"
-              width="36"
-            />
+            {data.iso2 && (
+              <img
+                src={`https://flagcdn.com/96x72/${data.iso2.toLowerCase()}.png`}
+                alt={data.country + " flag"}
+                height="48"
+                width="36"
+              />
+            )}
           </Link>
         </div>
         <h3

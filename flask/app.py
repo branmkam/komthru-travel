@@ -2,7 +2,6 @@ from flask import Flask, request
 from flask_cors import CORS
 import requests
 import json
-import pandas as pd
 import wikipediaapi as wa
 
 wiki = wa.Wikipedia(
@@ -20,10 +19,10 @@ def hello_world():
     return "Komthru Flask API"
 
 
-@app.route("/get-wiki", methods=['POST'])
+@app.route("/get-wiki", methods=["POST"])
 def getWikiInfo(imgSize=1200, txtLength=700, q=None):
     if q == None:
-        q = request.data.decode("utf-8")[1:-1] #remove quotes
+        q = request.data.decode("utf-8")[1:-1]  # remove quotes
     print(q)
     reds = requests.get(
         "http://en.wikipedia.org/w/api.php?action=query&format=json&titles="
@@ -61,7 +60,7 @@ def getWikiInfo(imgSize=1200, txtLength=700, q=None):
             return {"img": "none", "txt": ""}
 
 
-@app.route("/get-wikis", methods=['POST'])
+@app.route("/get-wikis", methods=["POST"])
 def getWikiInfos(imageSize=1200, txtLength=700):
     data = request.data.decode("utf-8")[1:-1]
     qarr = data.split("|")
@@ -72,4 +71,4 @@ def getWikiInfos(imageSize=1200, txtLength=700):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=2024, debug=False)
