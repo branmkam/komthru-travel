@@ -13,7 +13,7 @@ const highlights = {
 
 export default function Navbar() {
   return (
-    <nav className="text-white h-16 flex flex-row px-4 items-center justify-between fixed z-50 w-full bg-[#020430]">
+    <nav className="text-white h-16 flex flex-row px-4 items-center justify-between fixed z-50 w-full bg-darkBlue">
       <div className="flex flex-row gap-3 justify-center items-center">
         <Link className="font-bold hover:text-blue-300 " href="/">
           <Image

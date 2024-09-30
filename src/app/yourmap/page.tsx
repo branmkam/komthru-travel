@@ -24,7 +24,7 @@ export default function YourMap() {
 
   return (
     <div className="flex flex-row w-full h-[calc(100vh_-_4rem)]">
-      <div className="flex flex-col gap-1 overflow-y-auto w-1/3 p-4 bg-blue-800">
+      <div className="flex flex-col text-white gap-1 overflow-y-auto w-1/3 p-4 bg-darkBlue">
         test
       </div>
       <Map
