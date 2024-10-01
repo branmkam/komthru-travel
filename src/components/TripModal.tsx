@@ -18,7 +18,7 @@ export default function TripModal(props: {
   const [editTitle, setEditTitle] = useState(false);
   const [inp, setInp] = useState("");
   const [selected, setSelected] = useState("editing");
-  const [tripTitle, setTripTitle] = useState('My trip');
+  const [tripTitle, setTripTitle] = useState("My trip");
   const [dates, setDates] = useState([new Date(), new Date()]);
 
   const wcKeys = Object.keys(wc);
@@ -66,7 +66,7 @@ export default function TripModal(props: {
                           return (
                             <div
                               onClick={() => setSelected(y)}
-                              className="hover:cursor-pointer w-full hover:bg-darkBlue hover:text-white px-4 py-2 bg-white"
+                              className="hover:cursor-pointer w-full border-y-[1px] border-slate-200 hover:bg-darkBlue hover:text-white px-4 py-2 bg-white"
                             >
                               <p
                                 className={`${orelega_class} text-lg font-bold`}
