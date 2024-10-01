@@ -64,7 +64,9 @@ export default function RichText() {
       </div>
       <ReactQuill
         theme="snow"
-        className={`${chars > limit && "border-2 border-red-600"} bg-white`}
+        className={`border-2 ${
+          chars > limit ? "border-red-600" : "border-black"
+        } bg-white`}
         modules={modules}
         formats={formats}
         value={value}
