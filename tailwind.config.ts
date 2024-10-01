@@ -36,10 +36,19 @@ const config: Config = {
             opacity: "1",
           },
         },
+        fadeIn: {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
       },
       animation: {
         smallbounce: "smallbounce 1s infinite",
         fadeInOut: "fadeInOut 5s ease-in-out infinite",
+        modalFade: "fadeIn 0.6s ease-in-out",
       },
     },
   },
