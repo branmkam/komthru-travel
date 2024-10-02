@@ -49,7 +49,7 @@ export default function RichText() {
 
   const raw = value.replace(/<\/?[^>]+(>|$)/g, "");
   const chars = raw.length;
-  const limit = 10;
+  const limit = 2000;
 
   return (
     <div className={`flex flex-col gap-2 `}>
