@@ -46,7 +46,10 @@ export default function TripModal(props: {
           {!isTitleEditing ? (
             <>
               <span onClick={() => setIsTitleEditing(true)}>{tripTitle}</span>
-              <FontAwesomeIcon icon={faEdit} />
+              <FontAwesomeIcon
+                onClick={() => setIsTitleEditing(true)}
+                icon={faEdit}
+              />
             </>
           ) : (
             <>
@@ -126,7 +129,7 @@ export default function TripModal(props: {
               )}
             </div>
           </div>
-          <div className="w-full flex gap-2 flex-row justify-around items-center">
+          <div className="w-full flex gap-2 flex-col md:flex-row justify-around items-center">
             <div className="">
               <p className={`text-lg ${orelega_class}`}>Start Date</p>
               <DatePicker
