@@ -15,9 +15,9 @@ export default function TripModal(props: {
 }) {
   const { className, setShowModal } = props;
 
-  const [editTitle, setEditTitle] = useState(false);
   const [inp, setInp] = useState("");
-  const [selected, setSelected] = useState("editing");
+  const [selected, setSelected] = useState("~editing~");
+  const [isTitleEditing, setIsTitleEditing] = useState(false);
   const [tripTitle, setTripTitle] = useState("My trip");
   const [dates, setDates] = useState([new Date(), new Date()]);
 
@@ -41,10 +41,32 @@ export default function TripModal(props: {
       </div>
       <div>
         <div
-          className={`${orelega_class} pb-4 border-b-2 border-b-darkBlue text-2xl md:text-4xl flex flex-row gap-3`}
+          className={`${orelega_class} hover:cursor-pointer pb-4 border-b-2 border-b-darkBlue text-2xl  items-center md:text-4xl flex flex-row gap-3`}
         >
-          <p>{tripTitle}</p>
-          <FontAwesomeIcon icon={faEdit} />
+          {!isTitleEditing ? (
+            <>
+              <span onClick={() => setIsTitleEditing(true)}>{tripTitle}</span>
+              <FontAwesomeIcon
+                onClick={() => setIsTitleEditing(true)}
+                icon={faEdit}
+              />
+            </>
+          ) : (
+            <>
+              <input
+                placeholder="Enter a title for your trip!"
+                className="border-2 border-darkBlue rounded-lg p-2 w-full"
+                value={tripTitle}
+                onChange={(e) => setTripTitle(e.target.value)}
+              />
+              <button
+                onClick={() => setIsTitleEditing(false)}
+                className="w-20 p-2 text-lg bg-darkBlue rounded-lg text-white"
+              >
+                Save
+              </button>
+            </>
+          )}
         </div>
         <div className="flex flex-col gap-6 mt-4">
           <div className="flex flex-col gap-2">
@@ -52,7 +74,7 @@ export default function TripModal(props: {
               Which city did you go to?
             </p>
             <div className="w-full">
-              {selected == "editing" ? (
+              {selected == "~editing~" ? (
                 <>
                   <input
                     placeholder="Search for cities..."
@@ -93,7 +115,7 @@ export default function TripModal(props: {
                 <div
                   onClick={() => {
                     //   setInp(wc[selected].city_ascii);
-                    setSelected("editing");
+                    setSelected("~editing~");
                   }}
                   className="hover:text-darkBlue cursor-pointer flex flex-row text-lg gap-2 items-center"
                 >
@@ -107,7 +129,7 @@ export default function TripModal(props: {
               )}
             </div>
           </div>
-          <div className="w-full flex gap-2 flex-row justify-around items-center">
+          <div className="w-full flex gap-2 flex-col md:flex-row justify-around items-center">
             <div className="">
               <p className={`text-lg ml-2 ${orelega_class}`}>Start Date</p>
               <DatePicker
