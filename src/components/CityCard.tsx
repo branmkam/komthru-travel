@@ -1,6 +1,4 @@
-import { getWiki } from "@/actions";
 import Link from "next/link";
-import wc from "@/data/worldcities.json";
 
 interface CityCardProps {
   id: string;
@@ -16,23 +14,21 @@ interface CityCardProps {
   lat: number;
   lng: number;
   capital: string;
+  img: string;
 }
 
 export default async function CityCard(data: CityCardProps) {
-  const fetchStr =
-    data.city_ascii +
-    ", " +
-    (["US", "CA"].includes(data.iso2) ? data.admin_name : data.country);
-  let wikiInfo = await getWiki(fetchStr);
-
   return (
-    <Link href={"/cities/" + data.id} className="hover:animate-smallbounce drop-shadow-lg h-44 w-full">
+    <Link
+      href={"/cities/" + data.id}
+      className="hover:animate-smallbounce drop-shadow-lg h-44 w-full"
+    >
       <div className="relative">
         <img
           className="w-full h-44 rounded-xl object-cover brightness-[0.3]"
           src={
-            wikiInfo.img != "none"
-              ? wikiInfo.img
+            data.img != "none"
+              ? data.img
               : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Black_colour.jpg/450px-Black_colour.jpg?20170110114905"
           }
         />

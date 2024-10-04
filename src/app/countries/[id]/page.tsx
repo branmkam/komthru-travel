@@ -4,6 +4,7 @@ import { getWiki } from "@/actions";
 import { orelega_class } from "@/fonts";
 import CityCard from "@/components/CityCard";
 import { notFound } from "next/navigation";
+import CityCardGrid from "@/components/CityCardGrid";
 
 const CityMap = dynamic(() => import("@/components/CityMap"), {
   ssr: false,
@@ -18,13 +19,14 @@ interface CountryProps {
 export default async function Country(props: CountryProps) {
   const id = props.params.id;
   const cities = Object.keys(wc)
-    .filter((x) => wc[x]["iso3"] == id)
+    .filter((x) => wc[x]["iso3"] == id.toUpperCase())
     .sort((a, b) => wc[b].population - wc[a].population);
 
   if (cities.length == 0) {
     return notFound();
   }
 
+  //for country
   const data = wc[cities[0]];
   const fetchStr = data.country;
   let wikiInfo = await getWiki(fetchStr);
@@ -86,11 +88,7 @@ export default async function Country(props: CountryProps) {
         <div>
           {" "}
           <h3 className={`${orelega_class} text-3xl mb-4`}>Top Cities</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {cities.slice(0, 6).map((cid) => (
-              <CityCard key={cid} id={cid} {...wc[cid]} />
-            ))}
-          </div>
+          <CityCardGrid ids={cities.slice(0, 6)} />
         </div>
       </div>
     </div>
