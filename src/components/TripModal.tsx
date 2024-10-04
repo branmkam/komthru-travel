@@ -68,7 +68,7 @@ export default function TripModal(props: {
             </>
           )}
         </div>
-        <div className="flex flex-col gap-6 mt-4 pb-4">
+        <div className="flex flex-col gap-6 mt-4">
           <div className="flex flex-col gap-2">
             <p className={`text-lg ${orelega_class}`}>
               Which city did you go to?
@@ -131,7 +131,7 @@ export default function TripModal(props: {
           </div>
           <div className="w-full flex gap-2 flex-col md:flex-row justify-around items-center">
             <div className="">
-              <p className={`text-lg ${orelega_class}`}>Start Date</p>
+              <p className={`text-lg ml-2 ${orelega_class}`}>Start Date</p>
               <DatePicker
                 className="rounded-lg p-2 border-black border-2 w-full"
                 showFullMonthYearPicker={true}
@@ -143,7 +143,7 @@ export default function TripModal(props: {
               />
             </div>
             <div className="">
-              <p className={`text-lg ${orelega_class}`}>End Date</p>
+              <p className={`text-lg ml-2 ${orelega_class}`}>End Date</p>
               <DatePicker
                 className="rounded-lg p-2 border-black border-2 w-full"
                 showFullMonthYearPicker={true}
@@ -156,7 +156,7 @@ export default function TripModal(props: {
           </div>
           <div className="flex flex-col gap-2">
             <p className={`text-lg ${orelega_class}`}>
-              Tell us a bit about your experience!
+              Share a bit about your time in this city!
             </p>
             <RichText />
           </div>

@@ -8,6 +8,7 @@ export const trips = [
     user: "Brandino", //unique text id
     tripId: 123456,
     visibility: "private",
+    aboutTrip: "",
     legs: [
       {
         cityId: "1724594040", //Barcelona
@@ -37,6 +38,7 @@ export const trips = [
     name: "The trip of all time",
     user: "YaktheGoat", //unique text id
     visibility: "public",
+    aboutTrip: "",
     tripId: 287342,
     legs: [
       {
@@ -45,6 +47,7 @@ export const trips = [
         legEnd: "2024-07-23",
         media: [], // eventually get picture links in with upload. max 10
         body: "<p>Bajo jajo, bajo jajo! Warsaw's calling.</p>",
+        //dennis suggested mode of transportation between legs.
       },
       {
         cityId: "1208763942", //Copenhagen
