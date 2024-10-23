@@ -2,6 +2,8 @@
 export const trips = [
   {
     cityFrom: "1840014557", //Charlotte
+    citiesFrom: ["1840014557"], //Aurora, IL
+    currentCity: "1840014557",
     start: "2024-03-12",
     end: "2024-03-18",
     name: "Spain 2024",
@@ -32,7 +34,8 @@ export const trips = [
     ],
   },
   {
-    cityFrom: "1840007034", //Aurora, IL
+    citiesFrom: ["1840007034"], //Aurora, IL
+    currentCity: "1840007034",
     start: "2024-07-21",
     end: "2024-07-29",
     name: "The trip of all time",

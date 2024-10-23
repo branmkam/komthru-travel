@@ -6,6 +6,8 @@ import { orelega_class } from "@/fonts";
 import { popnum } from "@/utils/utils";
 import Link from "next/link";
 
+//add from a local contributor.
+
 const CityMap = dynamic(() => import("@/components/CityMap"), {
   ssr: false,
 });
